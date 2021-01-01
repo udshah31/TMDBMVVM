@@ -1,0 +1,35 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">TMDB(MVVM)</string>
+    <string name="title_movie">Movies</string>
+    <string name="title_tvShows">Tv Shows</string>
+    <string name="title_favourite">Favourite</string>
+    <string name="title_setting">Settings</string>
+    <string name="title_popular">Popular</string>
+    <string name="title_view_all">View All</string>
+    <string name="title_error">Results could not be loaded</string>
+    <string name="title_retryBtn">Retry</string>
+    <string name="title_search">Search</string>
+    <string name="title_detail">Details</string>
+    <string name="title_nowPlaying">NowPlaying</string>
+    <string name="title_topRated">Top Rated</string>
+    <string name="title_upcoming">Upcoming</string>
+    <string name="title_tvAiringToday">Tv Airing Today</string>
+    <string name="title_tvOnTheAir">Tv On The Air</string>
+    <string name="overview">Overview</string>
+    <string name="u2022">•</string>
+    <string name="Budget">Budget</string>
+    <string name="run_time">Run Time</string>
+    <string name="revenue">Revenue</string>
+    <string name="production_companies">Production Companies</string>
+    <string name="production_counties">Production Countries</string>
+    <string name="user_score">User \nScore</string>
+    <string name="Website">website</string>
+    <string name="trailer">Trailer</string>
+    <string name="episodes">Episodes</string>
+    <string name="episode_run_time">Run Time</string>
+    <string name="in_production">In Production</string>
+    <string name="last_air_date">Last Air Date</string>
+    <string name="seasons">Seasons</string>
+    <string name="title_readMore" tools:ignore="TypographyEllipsis">Read More...</string>
+    <string name="failed_to_connect">Failed to connect</string>
+</resources>

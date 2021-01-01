@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_movie">
+
+    <fragment
+        android:id="@+id/nav_movie"
+        android:name="com.example.tmdbmvvm.ui.fragment.MoviesFragment"
+        android:label="@string/title_movie"
+        tools:layout="@layout/movies_fragment">
+
+        <action
+            android:id="@+id/action_nav_movie_to_detailFragment"
+            app:destination="@id/detailNowPlayingFragment" />
+        <action
+            android:id="@+id/action_nav_movie_to_detailPopularFragment"
+            app:destination="@id/detailPopularFragment" />
+        <action
+            android:id="@+id/action_nav_movie_to_detailUpcomingFragment"
+            app:destination="@id/detailUpcomingFragment" />
+        <action
+            android:id="@+id/action_nav_movie_to_detailTopRatedFragment"
+            app:destination="@id/detailTopRatedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_tvShows"
+        android:name="com.example.tmdbmvvm.ui.fragment.TvShowsFragment"
+        android:label="@string/title_tvShows"
+        tools:layout="@layout/tvshows_fragment">
+        <action
+            android:id="@+id/action_nav_tvShows_to_detailTvAiringTodayFragment"
+            app:destination="@id/detailTvAiringTodayFragment" />
+        <action
+            android:id="@+id/action_nav_tvShows_to_detailTvOnTheAirFragment"
+            app:destination="@id/detailTvOnTheAirFragment" />
+        <action
+            android:id="@+id/action_nav_tvShows_to_detailTvPopularFragment"
+            app:destination="@id/detailTvPopularFragment" />
+        <action
+            android:id="@+id/action_nav_tvShows_to_detailTvTopRatedFragment"
+            app:destination="@id/detailTvTopRatedFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_favourite"
+        android:name="com.example.tmdbmvvm.ui.fragment.FavouriteFragment"
+        android:label="@string/title_favourite"
+        tools:layout="@layout/favourite_fragment" />
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.example.tmdbmvvm.ui.fragment.SettingFragment"
+        android:label="@string/title_setting"
+        tools:layout="@layout/setting_fragment" />
+
+
+    <fragment
+        android:id="@+id/detailNowPlayingFragment"
+        android:name="com.example.tmdbmvvm.ui.moviedetail.DetailNowPlayingFragment"
+        android:label="@string/title_detail"
+        tools:layout="@layout/movie_detail_fragment">
+
+    </fragment>
+    <fragment
+        android:id="@+id/detailPopularFragment"
+        android:name="com.example.tmdbmvvm.ui.moviedetail.DetailPopularFragment"
+        android:label="DetailPopularFragment"
+        tools:layout="@layout/movie_detail_fragment" />
+    <fragment
+        android:id="@+id/detailTopRatedFragment"
+        android:name="com.example.tmdbmvvm.ui.moviedetail.DetailTopRatedFragment"
+        android:label="DetailTopRatedFragment"
+        tools:layout="@layout/movie_detail_fragment" />
+    <fragment
+        android:id="@+id/detailUpcomingFragment"
+        android:name="com.example.tmdbmvvm.ui.moviedetail.DetailUpcomingFragment"
+        android:label="DetailUpcomingFragment"
+        tools:layout="@layout/movie_detail_fragment" />
+    <fragment
+        android:id="@+id/detailTvAiringTodayFragment"
+        android:name="com.example.tmdbmvvm.ui.tvshowdetail.DetailTvAiringTodayFragment"
+        android:label="DetailTvAiringTodayFragment"
+        tools:layout="@layout/movie_detail_fragment" />
+    <fragment
+        android:id="@+id/detailTvOnTheAirFragment"
+        android:name="com.example.tmdbmvvm.ui.tvshowdetail.DetailTvOnTheAirFragment"
+        android:label="DetailTvOnTheAirFragment"
+        tools:layout="@layout/tv_detail_fragment" />
+    <fragment
+        android:id="@+id/detailTvPopularFragment"
+        android:name="com.example.tmdbmvvm.ui.tvshowdetail.DetailTvPopularFragment"
+        android:label="DetailTvPopularFragment"
+        tools:layout="@layout/tv_detail_fragment" />
+    <fragment
+        android:id="@+id/detailTvTopRatedFragment"
+        android:name="com.example.tmdbmvvm.ui.tvshowdetail.DetailTvTopRatedFragment"
+        android:label="DetailTvTopRatedFragment"
+        tools:layout="@layout/tv_detail_fragment" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.tmdbmvvm.ui.fragment.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/search_fragment" />
+
+
+</navigation>

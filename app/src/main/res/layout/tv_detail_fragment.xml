@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/darkBlue">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/backgroundPoster"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160sdp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/sliderViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_160sdp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewFadingEdge"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/background_fading_edge"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/sliderViewPager" />
+
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/background_back_button"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/_8sdp"
+                android:visibility="gone"
+                android:src="@drawable/icon_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/posterImage"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/sliderViewPager"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sliderViewPager"
+                app:riv_corner_radius="@dimen/_6sdp" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:ellipsize="end"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:visibility="gone"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/posterImage"
+                app:layout_constraintTop_toBottomOf="@id/sliderViewPager" />
+
+            <TextView
+                android:id="@+id/tvLang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:ellipsize="end"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:visibility="gone"
+                android:textColor="@color/yellow"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintEnd_toEndOf="@id/tvName"
+                app:layout_constraintStart_toStartOf="@id/tvName"
+                app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:ellipsize="end"
+                android:visibility="gone"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textColor="@color/lightYellow"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="@id/tvName"
+                app:layout_constraintStart_toStartOf="@id/tvName"
+                app:layout_constraintTop_toBottomOf="@id/tvLang" />
+
+            <TextView
+                android:id="@+id/tvReleasedDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:ellipsize="end"
+                android:visibility="gone"
+                android:includeFontPadding="false"
+                android:maxLines="1"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="@id/tvName"
+                app:layout_constraintStart_toStartOf="@id/tvName"
+                app:layout_constraintTop_toBottomOf="@id/tvStatus" />
+
+            <LinearLayout
+                android:id="@+id/layoutSliderIndicator"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end|center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/_8sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/viewFadingEdge"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/posterImage" />
+
+            <TextView
+                android:id="@+id/tvTagLine"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:includeFontPadding="false"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="italic"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/tvStatus"
+                app:layout_constraintStart_toStartOf="@id/posterImage"
+                app:layout_constraintTop_toBottomOf="@id/posterImage" />
+
+            <TextView
+                android:id="@+id/titleOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:includeFontPadding="false"
+                android:text="@string/overview"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/tvTagLine"
+                app:layout_constraintTop_toBottomOf="@id/tvTagLine" />
+
+            <TextView
+                android:id="@+id/tvOverview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:ellipsize="end"
+                android:includeFontPadding="false"
+                android:maxLines="4"
+                android:visibility="gone"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="@id/tvTagLine"
+                app:layout_constraintStart_toStartOf="@id/tvTagLine"
+                app:layout_constraintTop_toBottomOf="@id/titleOverview" />
+
+            <TextView
+                android:id="@+id/tvReadMore"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:includeFontPadding="false"
+                android:text="@string/title_readMore"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/tvTagLine"
+                app:layout_constraintTop_toBottomOf="@id/tvOverview" />
+
+
+            <LinearLayout
+                android:id="@+id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:visibility="gone"
+                android:background="@drawable/linear_layout_background"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintTop_toBottomOf="@+id/tvReadMore">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.github.lzyzsd.circleprogress.DonutProgress
+                        android:id="@+id/circular_ratingBar"
+                        android:layout_width="@dimen/_50sdp"
+                        android:layout_height="@dimen/_50sdp"
+                        app:donut_background_color="@color/darkBlue"
+                        app:donut_finished_color="#21D07A"
+                        app:donut_finished_stroke_width="@dimen/_5sdp"
+                        app:donut_show_text="true"
+                        app:donut_text_color="@color/white"
+                        app:donut_text_size="@dimen/_10sdp"
+                        app:donut_unfinished_color="@color/lightGreen"
+                        app:donut_unfinished_stroke_width="@dimen/_3sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:includeFontPadding="false"
+                        android:text="@string/user_score"
+                        android:textColor="@color/lightBlue"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:includeFontPadding="false"
+                        android:text="@string/u2022"
+                        android:textColor="@color/lightBlue"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <TextView
+                        android:id="@+id/tvGenre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:includeFontPadding="false"
+                        android:textSize="@dimen/_12sdp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:background="@color/lightBlue" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvNumberOfEpisodes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:includeFontPadding="false"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:id="@+id/tvNumberOfSeasons"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:includeFontPadding="false"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:visibility="gone"
+                android:background="@drawable/linear_layout_background"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:padding="@dimen/_4sdp"
+                app:layout_constraintTop_toBottomOf="@id/layout1">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:includeFontPadding="false"
+                        android:text="@string/episode_run_time"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvEpisodeRunTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:includeFontPadding="false"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="@string/in_production"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvInProduction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:includeFontPadding="false"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:includeFontPadding="false"
+                        android:text="@string/last_air_date"
+                        android:textSize="@dimen/_13sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvLastAirDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        android:includeFontPadding="false"
+                        android:textSize="@dimen/_12sdp" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvProductions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/production_companies"
+                android:textSize="@dimen/_13sdp"
+                android:visibility="gone"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/layout2"
+                app:layout_constraintTop_toBottomOf="@id/layout2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_productionCompanies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:visibility="gone"
+                android:layout_marginEnd="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@id/tvProductions" />
+
+
+            <TextView
+                android:id="@+id/tvProductionsCountries"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/production_counties"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@+id/layout2"
+                app:layout_constraintTop_toBottomOf="@id/rv_productionCompanies" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_productionCountries"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@id/tvProductionsCountries" />
+
+
+            <TextView
+                android:id="@+id/tvSeasons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/seasons"
+                android:textSize="@dimen/_13sdp"
+                android:visibility="gone"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/rv_productionCountries"
+                app:layout_constraintTop_toBottomOf="@id/rv_productionCountries" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_seasons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@id/tvSeasons" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnWebsite"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:backgroundTint="@color/yellow"
+                android:includeFontPadding="false"
+                android:text="@string/Website"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_12sdp"
+                app:cornerRadius="@dimen/_6sdp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/btn_trailer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_seasons" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_trailer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:visibility="gone"
+                android:backgroundTint="@color/lightBlue"
+                android:includeFontPadding="false"
+                android:text="@string/episodes"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_12sdp"
+                app:cornerRadius="@dimen/_6sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnWebsite"
+                app:layout_constraintTop_toBottomOf="@id/rv_seasons" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
