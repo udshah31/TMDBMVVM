@@ -93,7 +93,7 @@ class NowPlayingFragment @Inject constructor() : Fragment(R.layout.nowplaying_fr
         binding.retryButton.setOnClickListener {
             adapter.retry()
         }
-
+        
     }
 
 

@@ -2,6 +2,7 @@ package com.example.tmdbmvvm.ui.tvShowsFragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -14,6 +15,7 @@ import com.example.tmdbmvvm.adapter.moviesAdapter.LoadStateAdapter
 import com.example.tmdbmvvm.adapter.tvShowsAdapter.TvOnTheAirAdapter
 import com.example.tmdbmvvm.databinding.TvOntheairFragmentBinding
 import com.example.tmdbmvvm.viewmodel.TvShowsViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
@@ -48,6 +50,29 @@ class TvOnTheAirFragment : Fragment(R.layout.tv_ontheair_fragment) {
 
             swipeRefresh.setOnRefreshListener {
                 adapter.refresh()
+                binding.progressBar.visibility = View.GONE
+            }
+        }
+
+        adapter.addLoadStateListener { loadState ->
+            binding.rvTvOnTheAir.isVisible = loadState.source.refresh is LoadState.NotLoading
+            binding.progressBar.isVisible = loadState.source.refresh is LoadState.Loading
+            binding.retryButton.isVisible = loadState.source.refresh is LoadState.Error
+            binding.tvErrorMessage.isVisible = loadState.source.refresh is LoadState.Error
+            binding.swipeRefresh.isVisible = loadState.source.refresh is LoadState.NotLoading
+
+            val errorState = loadState.source.append as? LoadState.Error
+                ?: loadState.source.prepend as? LoadState.Error
+                ?: loadState.append as? LoadState.Error
+                ?: loadState.prepend as? LoadState.Error
+            errorState?.let {
+                Snackbar.make(
+                    requireView(),
+                    "No Internet : ${errorState.error}",
+                    Snackbar.LENGTH_LONG
+                ).show()
+
+                binding.tvErrorMessage.text = errorState.error.message
             }
         }
 
@@ -59,6 +84,10 @@ class TvOnTheAirFragment : Fragment(R.layout.tv_ontheair_fragment) {
 
         viewModel.tvOnTheAir.observe(viewLifecycleOwner) {
             adapter.submitData(viewLifecycleOwner.lifecycle, it)
+        }
+
+        binding.retryButton.setOnClickListener {
+            adapter.retry()
         }
     }
 
